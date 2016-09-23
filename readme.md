@@ -1,6 +1,6 @@
 # A simple cards slider like airbnb has
 
-![preview.gif](http://img.careerfore.com/preview.gif-400w80p)
+![preview.gif](http://img.careerfore.com/preview.gif)
 
 ## usage
 
