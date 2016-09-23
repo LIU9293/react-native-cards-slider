@@ -1,6 +1,6 @@
 {
   "name": "react-native-cards-slider",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a simple cards slider component like airbnb has",
   "main": "index.js",
   "scripts": {},
@@ -15,5 +15,9 @@
     "slider"
   ],
   "author": "lock",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LIU9293/react-native-cards-slider.git"
+  },
   "license": "MIT"
 }

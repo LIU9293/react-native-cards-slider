@@ -1,5 +1,7 @@
 # A simple cards slider like airbnb has
 
+![preview.gif](http://img.careerfore.com/preview.gif-400w80p)
+
 ## usage
 
     npm i react-native-cards-slider --save
@@ -12,16 +14,69 @@ example:
       render(){
         return(
           <CardSilder>
-            <Image style={{flex:1}} source={{url : 'YOU_IMAGE_URL'}} />
-            <Image style={{flex:1}} source={{url : 'YOU_IMAGE_URL'}} />
-            <Image style={{flex:1}} source={{url : 'YOU_IMAGE_URL'}} />
-            <Image style={{flex:1}} source={{url : 'YOU_IMAGE_URL'}} />
+            <Image style={{height: 170}} source={{url : 'YOU_IMAGE_URL'}} />
+            <Image style={{height: 170}} source={{url : 'YOU_IMAGE_URL'}} />
+            <Image style={{height: 170}} source={{url : 'YOU_IMAGE_URL'}} />
+            <Image style={{height: 170}} source={{url : 'YOU_IMAGE_URL'}} />
           </CardSilder>
         )
       }
     }
 
-CardSilder it self will set it's width to the device width,
-So make sure you have enough space for it.
+complete example in preview gif:
 
-Pull request welcome
+    import React, { Component } from 'react';
+    import { Card, Image, AppRegistry, Text, View } from 'react-native';
+    import CardSilder from 'react-native-cards-slider';
+
+    class App extends Component{
+      render(){
+        return(
+          <View>
+            <Text style={{fontSize: 30, color: '#000', marginTop:50, marginLeft:20, fontWeight:'bold'}}>
+              Images
+            </Text>
+            <CardSilder style={{marginTop: 30}}>
+              <Image style={{height: 170}} source={{url : 'YOUR_IMAGE'}} />
+              <Image style={{height: 170}} source={{url : 'YOUR_IMAGE'}} />
+              <Image style={{height: 170}} source={{url : 'YOUR_IMAGE'}} />
+              <Image style={{height: 170}} source={{url : 'YOUR_IMAGE'}} />
+            </CardSilder>
+            <Text style={{fontSize: 30, color: '#000', marginTop:40, marginLeft:20, fontWeight:'bold'}}>
+              Block with Text
+            </Text>
+            <CardSilder style={{marginTop: 30}}>
+              <View style={{height: 170, justifyContent:'center', alignItems:'center', backgroundColor: 'skyblue'}}>
+                <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+                  悉尼
+                </Text>
+              </View>
+              <View style={{height: 170, justifyContent:'center', alignItems:'center', backgroundColor: 'lightsalmon'}}>
+                <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+                  纽约
+                </Text>
+              </View>
+              <View style={{height: 170, justifyContent:'center', alignItems:'center', backgroundColor: 'teal'}}>
+                <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+                  东京
+                </Text>
+              </View>
+              <View style={{height: 170, justifyContent:'center', alignItems:'center', backgroundColor: 'lightpink'}}>
+                <Text style={{color: 'white', fontSize: 24, fontWeight: 'bold'}}>
+                  上海
+                </Text>
+              </View>
+            </CardSilder>
+          </View>
+        )
+      }
+    }
+
+    AppRegistry.registerComponent('YOUR_APP_NAME', () => App);
+
+
+CardSilder itself will set it's width to the device width.
+
+So make sure you have enough space for it, and DO set a height for the children components.
+
+Pull request welcome.
