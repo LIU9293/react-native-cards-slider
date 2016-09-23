@@ -1,6 +1,6 @@
 # A simple cards slider like airbnb has
 
-![preview.gif](http://img.careerfore.com/preview.gif)
+![preview.gif](https://github.com/LIU9293/react-native-cards-slider/blob/master/preview.gif)
 
 ## usage
 
