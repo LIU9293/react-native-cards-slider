@@ -2,7 +2,13 @@
 
 ![preview.gif](https://github.com/LIU9293/react-native-cards-slider/blob/master/preview.gif)
 
-## usage
+## Autoplay (new)
+
+    <CardSilder autoplay interval={4000}>
+      {YOUR_AWESOME_CHILDREN}
+    </CardSilder>
+
+## Usage
 
     npm i react-native-cards-slider --save
 
@@ -26,7 +32,7 @@ example:
 complete example in preview gif:
 
     import React, { Component } from 'react';
-    import { Card, Image, AppRegistry, Text, View } from 'react-native';
+    import { Image, AppRegistry, Text, View } from 'react-native';
     import CardSilder from 'react-native-cards-slider';
 
     class App extends Component{
@@ -73,7 +79,6 @@ complete example in preview gif:
     }
 
     AppRegistry.registerComponent('YOUR_APP_NAME', () => App);
-
 
 CardSilder itself will set it's width to the device width.
 

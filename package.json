@@ -1,6 +1,6 @@
 {
   "name": "react-native-cards-slider",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "a simple cards slider component like airbnb has",
   "main": "index.js",
   "scripts": {},

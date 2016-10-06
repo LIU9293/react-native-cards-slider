@@ -3,6 +3,47 @@ import { View, StyleSheet, ScrollView, Dimensions } from 'react-native';
 const window = Dimensions.get('window');
 
 class CardSilder extends Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      numOfCards: this.props.children.length,
+      position: 1,
+    }
+    this.next = this.next.bind(this);
+    this.scroll = this.scroll.bind(this);
+    this.canAutoMove = true;
+    this.t = null;
+  }
+  componentWillMount(){
+    if(this.props.autoplay){
+      this.t = setInterval(()=>{
+        this.next()
+      }, this.props.interval || 3000)
+    }
+  }
+  componentWillUnmount(){
+    if(this.t){
+      clearInterval(this.t);
+    }
+  }
+  next(){
+    if(this.canAutoMove){
+      this.slider.scrollTo({x: (window.width - 30) * this.state.position})
+    }
+  }
+  scroll(e){
+    this.canAutoMove = false;
+    let offsetX = e.contentOffset.x;
+    let page = parseInt(offsetX/(window.width-30));
+    if(page == this.state.numOfCards - 1){
+      this.setState({position: 0})
+    } else {
+      this.setState({position: page + 1})
+    }
+    setTimeout(()=>{
+      this.canAutoMove = true;
+    }, 1000)
+  }
   render(){
     let cards;
     if(this.props.children.length > 1){
@@ -20,12 +61,14 @@ class CardSilder extends Component{
     }
     return(
       <ScrollView
+        {...this.props}
+        ref={slider => this.slider = slider}
         style={[styles.scroll, this.props.style]}
+        onScroll={e => this.scroll(e.nativeEvent)}
         horizontal={true}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
-        contentInset={{top: 0, left: 0, bottom: 0, right: 0}}
-        contentOffset={{x: 0, y: 0}}
+        scrollEventThrottle={20}
       >
         {cards}
       </ScrollView>
@@ -37,14 +80,12 @@ const styles = StyleSheet.create({
   scroll: {
     flex: 1,
     width: window.width - 30,
-    marginLeft: 15,
-    marginRight: 15,
+    marginHorizontal: 15,
     overflow: 'visible',
   },
   card: {
     width: window.width - 40,
-    marginLeft: 5,
-    marginRight: 5,
+    marginHorizontal: 5,
   }
 })
 
